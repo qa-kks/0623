@@ -19,7 +19,7 @@ pipeline {
                 // Windows 환경에 맞춘 Python 가상환경 생성 및 의존성 설치
                 bat '''
                     python -m venv venv
-                    call venv\Scripts\activate
+                    call venv\\Scripts\\activate
                     python -m pip install --upgrade pip
                     python -m pip install -r requirements.txt
                 '''
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 // pytest 실행하여 테스트 수행, JUnit XML 리포트 생성
                 bat '''
-                    call venv\Scripts\activate
+                    call venv\\Scripts\\activate
                     python -m pytest tests/ --junitxml=pytest-report.xml
                 '''
             }
